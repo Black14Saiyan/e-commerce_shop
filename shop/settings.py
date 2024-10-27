@@ -56,7 +56,7 @@ ROOT_URLCONF = 'shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / templates],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,7 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -127,3 +127,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SPECIFIER A DJANGO QUE LE MODEL D'UTILISATEUR EST "SHOPPER"
 AUTH_USER_MODEL = "accounts.Shopper"
+# EMPLACEMENT OU LES FICHIERS STATIC COLLECTE SERONT STOCKE
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+# DOSSIER OU DJANGO CHERCHERA TOUT LES FICHIERS STATIC DU PROJET
+STATICFILES_DIR = [
+    BASE_DIR / 'static',
+]
+# CONFIGURATION DES FICHIERS MEDIA
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media/products'
